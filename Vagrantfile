@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
     cfg.vm.network "public_network", ip: "172.20.10.11"
     cfg.vm.network "forwarded_port", guest: 22, host: 19211, auto_correct: false, id: "ssh"
     cfg.vm.network "forwarded_port", guest: 80, host: 10080
+    cfg.vm.network "forwarded_port", guest: 8088, host: 18088
     cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
   end
 
@@ -26,6 +27,7 @@ Vagrant.configure("2") do |config|
     cfg.vm.network "public_network", ip: "172.20.10.12"
     cfg.vm.network "forwarded_port", guest: 22, host: 19212, auto_correct: false, id: "ssh"
     cfg.vm.network "forwarded_port", guest: 80, host: 20080
+    cfg.vm.network "forwarded_port", guest: 8088, host: 28088
     cfg.vm.provision "shell", path: "bash_ssh_conf_4_CentOS.sh"
   end
 
@@ -70,6 +72,7 @@ Vagrant.configure("2") do |config|
     cfg.vm.network "public_network", ip: "172.20.10.10"
     cfg.vm.network "forwarded_port", guest: 22, host: 19210, auto_correct: false, id: "ssh"
     cfg.vm.network "forwarded_port", guest: 8080, host: 58080
+    cfg.vm.network "forwarded_port", guest: 8088, host: 58088
     # cfg.vm.network "forwarded_port", guest: 9000, host: 59000
     cfg.vm.provision "shell", path: "bootstrap.sh"  
     cfg.vm.provision "file", source: "Ansible_env_ready.yml", destination: "Ansible_env_ready.yml"
